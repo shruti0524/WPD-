@@ -1,102 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Responsive Website</title>
-<link rel="stylesheet" href="style.css">
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnimeHub - Watch Anime Online</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #0b0c10;
+      color: #fff;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #1f2833;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      color: #66fcf1;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a {
+      color: #c5c6c7;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #66fcf1;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: url('https://wallpaperaccess.com/full/1929322.jpg') no-repeat center/cover;
+      height: 70vh;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #66fcf1;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      color: #c5c6c7;
+    }
+    .hero button {
+      margin-top: 2rem;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      background-color: #66fcf1;
+      border: none;
+      color: #0b0c10;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .hero button:hover {
+      background-color: #45a29e;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 2rem;
+    }
+    section h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #66fcf1;
+    }
+
+    /* Anime Grid */
+    .anime-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+    .anime-card {
+      background-color: #1f2833;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .anime-card:hover {
+      transform: scale(1.05);
+    }
+    .anime-card img {
+      width: 100%;
+      display: block;
+    }
+    .anime-card .info {
+      padding: 1rem;
+    }
+    .anime-card .info h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .anime-card .info p {
+      font-size: 0.9rem;
+      color: #c5c6c7;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1f2833;
+      padding: 2rem;
+      text-align: center;
+      color: #c5c6c7;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
 <body>
 
-<!-- Header -->
-<header>
-<h1>My Responsive Website</h1>
-<nav>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#">About</a></li>
-<li><a href="#">Services</a></li>
-<li><a href="#">Gallery</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
-</nav>
-</header>
+  <!-- Header -->
+  <header>
+    <h1>AnimeHub</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Trending</a></li>
+        <li><a href="#">Genres</a></li>
+        <li><a href="#">Latest</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<!-- Hero Section -->
-<section class="hero">
-<h2>Welcome to My Website</h2>
-<p>This is a simple responsive website created using HTML and CSS.</p>
-<button>Learn More</button>
-</section>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Watch Your Favorite Anime Online</h2>
+    <p>Stream the latest episodes and discover trending anime from all genres. High-quality and free to watch!</p>
+    <button>Explore Anime</button>
+  </section>
 
-<!-- About Section -->
-<section class="about">
-<h2>About Us</h2>
-<p>
-We create modern and responsive websites that work on all devices.
-Our goal is to provide beautiful designs and smooth user experiences.
-This sample layout demonstrates how a responsive structure works.
-</p>
-</section>
+  <!-- Trending Anime Section -->
+  <section>
+    <h3>Trending Anime</h3>
+    <div class="anime-grid">
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/10/75947.jpg" alt="Attack on Titan">
+        <div class="info">
+          <h4>Attack on Titan</h4>
+          <p>Action, Drama, Fantasy</p>
+        </div>
+      </div>
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/5/87108.jpg" alt="Jujutsu Kaisen">
+        <div class="info">
+          <h4>Jujutsu Kaisen</h4>
+          <p>Action, Supernatural</p>
+        </div>
+      </div>
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/13/17405.jpg" alt="Demon Slayer">
+        <div class="info">
+          <h4>Demon Slayer</h4>
+          <p>Action, Adventure, Fantasy</p>
+        </div>
+      </div>
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/12/66521.jpg" alt="My Hero Academia">
+        <div class="info">
+          <h4>My Hero Academia</h4>
+          <p>Action, Comedy, Superhero</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Services Section -->
-<section class="services">
-<h2>Our Services</h2>
+  <!-- Genres Section -->
+  <section>
+    <h3>Explore by Genre</h3>
+    <div class="anime-grid">
+      <div class="anime-card">
+        <img src="https://wallpaperaccess.com/full/345935.jpg" alt="Action">
+        <div class="info"><h4>Action</h4></div>
+      </div>
+      <div class="anime-card">
+        <img src="https://wallpaperaccess.com/full/383748.jpg" alt="Romance">
+        <div class="info"><h4>Romance</h4></div>
+      </div>
+      <div class="anime-card">
+        <img src="https://wallpaperaccess.com/full/132628.jpg" alt="Comedy">
+        <div class="info"><h4>Comedy</h4></div>
+      </div>
+      <div class="anime-card">
+        <img src="https://wallpaperaccess.com/full/273979.jpg" alt="Fantasy">
+        <div class="info"><h4>Fantasy</h4></div>
+      </div>
+    </div>
+  </section>
 
-<div class="service-box">
-<h3>Web Design</h3>
-<p>We design clean and modern websites that are user friendly.</p>
-</div>
+  <!-- Latest Releases -->
+  <section>
+    <h3>Latest Releases</h3>
+    <div class="anime-grid">
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/1156/113702.jpg" alt="Chainsaw Man">
+        <div class="info">
+          <h4>Chainsaw Man</h4>
+          <p>Action, Horror, Supernatural</p>
+        </div>
+      </div>
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/11/94823.jpg" alt="Tokyo Revengers">
+        <div class="info">
+          <h4>Tokyo Revengers</h4>
+          <p>Action, Drama, Sci-Fi</p>
+        </div>
+      </div>
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/11/94477.jpg" alt="Spy x Family">
+        <div class="info">
+          <h4>Spy x Family</h4>
+          <p>Action, Comedy, Slice of Life</p>
+        </div>
+      </div>
+      <div class="anime-card">
+        <img src="https://cdn.myanimelist.net/images/anime/1337/110669.jpg" alt="Blue Lock">
+        <div class="info">
+          <h4>Blue Lock</h4>
+          <p>Sports, Drama, Shounen</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="service-box">
-<h3>Web Development</h3>
-<p>We build responsive and functional websites using modern technologies.</p>
-</div>
-
-<div class="service-box">
-<h3>SEO Optimization</h3>
-<p>We help websites rank better on search engines.</p>
-</div>
-
-</section>
-
-<!-- Gallery Section -->
-<section class="gallery">
-<h2>Gallery</h2>
-
-<div class="images">
-<img src="https://via.placeholder.com/200">
-<img src="https://via.placeholder.com/200">
-<img src="https://via.placeholder.com/200">
-<img src="https://via.placeholder.com/200">
-</div>
-
-</section>
-
-<!-- Contact Section -->
-<section class="contact">
-<h2>Contact Us</h2>
-
-<form>
-<label>Name:</label>
-<input type="text" placeholder="Enter your name">
-
-<label>Email:</label>
-<input type="email" placeholder="Enter your email">
-
-<label>Message:</label>
-<textarea placeholder="Write your message"></textarea>
-
-<button type="submit">Send Message</button>
-</form>
-
-</section>
-
-<!-- Footer -->
-<footer>
-<p>© 2026 My Responsive Website | All Rights Reserved</p>
-</footer>
+  <!-- Footer -->
+  <footer>
+    &copy; 2026 AnimeHub. All rights reserved. | Designed for anime fans by anime fans.
+  </footer>
 
 </body>
 </html>
