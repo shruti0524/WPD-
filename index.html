@@ -1,275 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AnimeHub - Watch Anime Online</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* Reset and Base Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #0b0c10;
-      color: #fff;
-      line-height: 1.6;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AnimeHub - Watch Anime Online</title>
 
-    /* Header */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #1f2833;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header h1 {
-      color: #66fcf1;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-    nav ul li a {
-      color: #c5c6c7;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover {
-      color: #66fcf1;
-    }
+<style>
+body{
+font-family: Arial;
+margin:0;
+background:#0b0c10;
+color:white;
+}
 
-    /* Hero Section */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 4rem 2rem;
-      background: url('https://wallpaperaccess.com/full/1929322.jpg') no-repeat center/cover;
-      height: 70vh;
-    }
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #66fcf1;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      color: #c5c6c7;
-    }
-    .hero button {
-      margin-top: 2rem;
-      padding: 0.75rem 2rem;
-      font-size: 1rem;
-      background-color: #66fcf1;
-      border: none;
-      color: #0b0c10;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-    .hero button:hover {
-      background-color: #45a29e;
-    }
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:#1f2833;
+}
 
-    /* Sections */
-    section {
-      padding: 3rem 2rem;
-    }
-    section h3 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #66fcf1;
-    }
+header h1{
+color:#66fcf1;
+}
 
-    /* Anime Grid */
-    .anime-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-    }
-    .anime-card {
-      background-color: #1f2833;
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-    .anime-card:hover {
-      transform: scale(1.05);
-    }
-    .anime-card img {
-      width: 100%;
-      display: block;
-    }
-    .anime-card .info {
-      padding: 1rem;
-    }
-    .anime-card .info h4 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-    .anime-card .info p {
-      font-size: 0.9rem;
-      color: #c5c6c7;
-    }
+nav ul{
+display:flex;
+list-style:none;
+gap:20px;
+}
 
-    /* Footer */
-    footer {
-      background-color: #1f2833;
-      padding: 2rem;
-      text-align: center;
-      color: #c5c6c7;
-      font-size: 0.9rem;
-    }
+nav a{
+color:#c5c6c7;
+}
 
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 2rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+.hero{
+text-align:center;
+padding:80px 20px;
+background-image:url("https://images6.alphacoders.com/909/909641.jpg");
+background-size:cover;
+}
+
+.hero h2{
+font-size:40px;
+color:#66fcf1;
+}
+
+.hero button{
+padding:10px 25px;
+background:#66fcf1;
+border:none;
+margin-top:15px;
+cursor:pointer;
+}
+
+section{
+padding:40px;
+}
+
+h3{
+color:#66fcf1;
+}
+
+.anime-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.anime-card{
+background:#1f2833;
+border-radius:10px;
+overflow:hidden;
+}
+
+.anime-card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.info{
+padding:10px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#1f2833;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>AnimeHub</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Trending</a></li>
-        <li><a href="#">Genres</a></li>
-        <li><a href="#">Latest</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+<h1>AnimeHub</h1>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h2>Watch Your Favorite Anime Online</h2>
-    <p>Stream the latest episodes and discover trending anime from all genres. High-quality and free to watch!</p>
-    <button>Explore Anime</button>
-  </section>
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Trending</a></li>
+<li><a href="#">Genres</a></li>
+<li><a href="#">Latest</a></li>
+</ul>
+</nav>
+</header>
 
-  <!-- Trending Anime Section -->
-  <section>
-    <h3>Trending Anime</h3>
-    <div class="anime-grid">
-      <div class="anime-card">
-        <img src="https://cdn.myanimelist.net/images/anime/10/75947.jpg" alt="Attack on Titan">
-        <div class="info">
-          <h4>Attack on Titan</h4>
-          <p>Action, Drama, Fantasy</p>
-        </div>
-      </div>
-      <div class="anime-card">
-        <img src="https://cdn.myanimelist.net/images/anime/5/87108.jpg" alt="Jujutsu Kaisen">
-        <div class="info">
-          <h4>Jujutsu Kaisen</h4>
-          <p>Action, Supernatural</p>
-        </div>
-      </div>
-      <div class="anime-card">
-        <img src="https://cdn.myanimelist.net/images/anime/13/17405.jpg" alt="Demon Slayer">
-        <div class="info">
-          <h4>Demon Slayer</h4>
-          <p>Action, Adventure, Fantasy</p>
-        </div>
-      </div>
-      <div class="anime-card">
-        <img src="https://cdn.myanimelist.net/images/anime/12/66521.jpg" alt="My Hero Academia">
-        <div class="info">
-          <h4>My Hero Academia</h4>
-          <p>Action, Comedy, Superhero</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="hero">
+<h2>Watch Your Favorite Anime Online</h2>
+<p>Stream popular anime anytime</p>
+<button>Explore Anime</button>
+</div>
 
-  <!-- Genres Section -->
-  <section>
-    <h3>Explore by Genre</h3>
-    <div class="anime-grid">
-      <div class="anime-card">
-        <img src="https://wallpaperaccess.com/full/345935.jpg" alt="Action">
-        <div class="info"><h4>Action</h4></div>
-      </div>
-      <div class="anime-card">
-        <img src="https://wallpaperaccess.com/full/383748.jpg" alt="Romance">
-        <div class="info"><h4>Romance</h4></div>
-      </div>
-      <div class="anime-card">
-        <img src="https://wallpaperaccess.com/full/132628.jpg" alt="Comedy">
-        <div class="info"><h4>Comedy</h4></div>
-      </div>
-      <div class="anime-card">
-        <img src="https://wallpaperaccess.com/full/273979.jpg" alt="Fantasy">
-        <div class="info"><h4>Fantasy</h4></div>
-      </div>
-    </div>
-  </section>
+<section>
+<h3>Trending Anime</h3>
 
-  <!-- Latest Releases -->
-  <section>
-    <h3>Latest Releases</h3>
-    <div class="anime-grid">
-      <div class="anime-card">
-        <img src="https://cdn.myanimelist.net/images/anime/1156/113702.jpg" alt="Chainsaw Man">
-        <div class="info">
-          <h4>Chainsaw Man</h4>
-          <p>Action, Horror, Supernatural</p>
-        </div>
-      </div>
-      <div class="anime-card">
-        <img src="https://cdn.myanimelist.net/images/anime/11/94823.jpg" alt="Tokyo Revengers">
-        <div class="info">
-          <h4>Tokyo Revengers</h4>
-          <p>Action, Drama, Sci-Fi</p>
-        </div>
-      </div>
-      <div class="anime-card">
-        <img src="https://cdn.myanimelist.net/images/anime/11/94477.jpg" alt="Spy x Family">
-        <div class="info">
-          <h4>Spy x Family</h4>
-          <p>Action, Comedy, Slice of Life</p>
-        </div>
-      </div>
-      <div class="anime-card">
-        <img src="https://cdn.myanimelist.net/images/anime/1337/110669.jpg" alt="Blue Lock">
-        <div class="info">
-          <h4>Blue Lock</h4>
-          <p>Sports, Drama, Shounen</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="anime-grid">
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2026 AnimeHub. All rights reserved. | Designed for anime fans by anime fans.
-  </footer>
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/10/47347.jpg">
+<div class="info">
+<h4>Attack on Titan</h4>
+<p>Action, Drama</p>
+</div>
+</div>
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/1171/109222.jpg">
+<div class="info">
+<h4>Jujutsu Kaisen</h4>
+<p>Action, Supernatural</p>
+</div>
+</div>
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/1286/99889.jpg">
+<div class="info">
+<h4>Demon Slayer</h4>
+<p>Action, Fantasy</p>
+</div>
+</div>
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/10/78745.jpg">
+<div class="info">
+<h4>My Hero Academia</h4>
+<p>Action, Superhero</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<h3>Latest Anime</h3>
+
+<div class="anime-grid">
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/1806/126216.jpg">
+<div class="info">
+<h4>Chainsaw Man</h4>
+<p>Action, Horror</p>
+</div>
+</div>
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/1839/122012.jpg">
+<div class="info">
+<h4>Tokyo Revengers</h4>
+<p>Action, Drama</p>
+</div>
+</div>
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/1441/122795.jpg">
+<div class="info">
+<h4>Spy x Family</h4>
+<p>Comedy, Action</p>
+</div>
+</div>
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/1259/110670.jpg">
+<div class="info">
+<h4>Blue Lock</h4>
+<p>Sports, Drama</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 AnimeHub</p>
+</footer>
 
 </body>
-</html>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AnimeHub - Watch Anime Online</title>
+
+<style>
+body{
+font-family: Arial;
+margin:0;
+background:#0b0c10;
+color:white;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:#1f2833;
+}
+
+header h1{
+color:#66fcf1;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:20px;
+}
+
+nav a{
+color:#c5c6c7;
+}
+
+.hero{
+text-align:center;
+padding:80px 20px;
+background-image:url("https://images6.alphacoders.com/909/909641.jpg");
+background-size:cover;
+}
+
+.hero h2{
+font-size:40px;
+color:#66fcf1;
+}
+
+.hero button{
+padding:10px 25px;
+background:#66fcf1;
+border:none;
+margin-top:15px;
+cursor:pointer;
+}
+
+section{
+padding:40px;
+}
+
+h3{
+color:#66fcf1;
+}
+
+.anime-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.anime-card{
+background:#1f2833;
+border-radius:10px;
+overflow:hidden;
+}
+
+.anime-card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.info{
+padding:10px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#1f2833;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>AnimeHub</h1>
+
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Trending</a></li>
+<li><a href="#">Genres</a></li>
+<li><a href="#">Latest</a></li>
+</ul>
+</nav>
+</header>
+
+<div class="hero">
+<h2>Watch Your Favorite Anime Online</h2>
+<p>Stream popular anime anytime</p>
+<button>Explore Anime</button>
+</div>
+
+<section>
+<h3>Trending Anime</h3>
+
+<div class="anime-grid">
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/10/47347.jpg">
+<div class="info">
+<h4>Attack on Titan</h4>
+<p>Action, Drama</p>
+</div>
+</div>
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/1171/109222.jpg">
+<div class="info">
+<h4>Jujutsu Kaisen</h4>
+<p>Action, Supernatural</p>
+</div>
+</div>
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/1286/99889.jpg">
+<div class="info">
+<h4>Demon Slayer</h4>
+<p>Action, Fantasy</p>
+</div>
+</div>
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/10/78745.jpg">
+<div class="info">
+<h4>My Hero Academia</h4>
+<p>Action, Superhero</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<h3>Latest Anime</h3>
+
+<div class="anime-grid">
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/1806/126216.jpg">
+<div class="info">
+<h4>Chainsaw Man</h4>
+<p>Action, Horror</p>
+</div>
+</div>
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/1839/122012.jpg">
+<div class="info">
+<h4>Tokyo Revengers</h4>
+<p>Action, Drama</p>
+</div>
+</div>
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/1441/122795.jpg">
+<div class="info">
+<h4>Spy x Family</h4>
+<p>Comedy, Action</p>
+</div>
+</div>
+
+<div class="anime-card">
+<img src="https://cdn.myanimelist.net/images/anime/1259/110670.jpg">
+<div class="info">
+<h4>Blue Lock</h4>
+<p>Sports, Drama</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 AnimeHub</p>
+</footer>
+
+</body>
+</html>v
